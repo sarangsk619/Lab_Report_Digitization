@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Upload Image</title>
+ </head>
+<style> 
+input[type=button], input[type=submit]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+ <body>
+
+   {% if msg %}
+   <h1>{{ msg }}</h1>
+   {% endif %}
+  
+   <form method=post enctype=multipart/form-data>
+     <center><input type=file name=file>
+        <input type=submit value=Upload>
+	 </center>
+   </form>
+
+   <h3>please wait after uploading</h3>
+   {% if img_src %}
+     <img src="{{ img_src }}">
+   {% endif %}
+  
+   {% if extracted_text %}
+     <p> OCR Result: <b> {{ extracted_text }} </b></p>
+  
+   {% else %}
+     The OCR result will be displayed here
+   {% endif %}
+ </body>
+</html>
